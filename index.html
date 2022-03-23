@@ -5,13 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seconds Since Birth Calculator</title>
-    <script src="./main.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Welcome!</h1>
-        Calculate the Seconds Since Your Birth
+      <h1>Welcome!</h1>
+      Calculate the Seconds Since Your Birth
+      
     </header>
+    
+   
+    
+    <main>
+      
+      <form id="form">
+        <label for="name">Name</label>
+        <input name="name" type="text" placeholder="Name" id="name">
+        <label for="month">Birth Month</label>
+        <input name="month" type="number" min="1" max="12" placeholder="1" id="month">
+        <label for="year">Birth Year</label>
+        <input name="year" type="number" min="1922" max="2022" placeholder="2022" id="year">
+        <button id="submit">Submit</button>
+        <!-----  <label for="date">Birth Date</label>
+          <input name ="dateOfBirthInput" type="date" id="date" class="date-picker" --->
+          
+        </form>
+        
+        <img id="clock" src="https://st3.depositphotos.com/11477350/16756/i/950/depositphotos_167569306-stock-photo-antique-old-clock-abstract-fractal.jpg" 
+        alt="winding clock" height="500">
+        
+        
+        <div id="result"></div>
+        
+        
+      </main>
+      
+      
+      
+      
+      <script src="./main.js"></script>
     
 </body>
 </html>

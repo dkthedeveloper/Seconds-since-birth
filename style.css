@@ -1,0 +1,59 @@
+
+        body    {
+            background-color: beige;
+
+
+        }
+        
+        header {
+                
+            text-align:center;
+
+        }
+
+    
+
+        main {
+
+            text-align:center;
+            margin-top: 30px;
+         }
+        
+         #clock {
+
+            margin-top: 30px;
+            margin-bottom: 30px;
+            border: 2px solid black;
+            border-radius: 50%;
+            flexbox: auto;
+
+         }
+
+         #seconds-alive {
+
+            color: rgb(77, 104, 224)
+         }
+
+         li {
+            text-align: left;
+              list-style: none;
+              background: white;
+              padding: 8px;
+              border-top: 1px solid rgb(238,238,238);
+            }
+
+
+
+          li:first-child {
+            border-top: none;
+            
+            }
+
+          li:nth-child(even) {
+              background-color: rgb(246,246,246);
+}
+
+            li:hover {
+              background: gold
+            }
+
