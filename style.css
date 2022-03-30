@@ -1,18 +1,33 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Oswald:wght@200;300&family=Raleway:wght@500&display=swap');
+        
+        
         body    {
-            background-color: beige;
+            background-color: #ffd890;
+            font-family: 'Raleway', sans-serif;
+
+
+        }
+
+        
+        header {
+            
+            text-align:center;
+            
+            
+            
+            
+        }
+        
+        h1  {
+            
+            font-family: 'Fredoka One', cursive;
+            color: rgb(61, 61, 31);
+            
 
 
         }
         
-        header {
-                
-            text-align:center;
-
-        }
-
-    
-
+        
         main {
 
             text-align:center;
@@ -21,11 +36,12 @@
         
          #clock {
 
-            margin-top: 30px;
+            margin-top: 50px;
             margin-bottom: 30px;
             border: 2px solid black;
             border-radius: 50%;
             flexbox: auto;
+            opacity: 0.8;
 
          }
 
@@ -34,26 +50,11 @@
             color: rgb(77, 104, 224)
          }
 
-         li {
-            text-align: left;
-              list-style: none;
-              background: white;
-              padding: 8px;
-              border-top: 1px solid rgb(238,238,238);
-            }
+         input {
+          
+          padding: 4px;
+          border: 1px solid black;
+          font-size: 12px;
 
-
-
-          li:first-child {
-            border-top: none;
-            
-            }
-
-          li:nth-child(even) {
-              background-color: rgb(246,246,246);
-}
-
-            li:hover {
-              background: gold
-            }
-
+        }
+        
