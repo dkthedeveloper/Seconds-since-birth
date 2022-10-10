@@ -1,49 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-RKEDVB0W51"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-RKEDVB0W51");
+    </script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Seconds Since Birth Calculator</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
     <header>
       <h1>Welcome!</h1>
-      <hr id="line" color="black" width="80%">
-      <br>
+      <hr id="line" color="black" width="80%" />
+      <br />
       Calculate the Seconds Since Your Birth
-      
     </header>
-  
-    
-   
-    
+
     <main>
-      
       <form id="form">
         <label for="name">Name</label>
-        <input name="name" type="text" placeholder="Name" id="name">
+        <input name="name" type="text" placeholder="Name" id="name" />
         <label for="month">Birth Month</label>
-        <input name="month" type="number" min="1" max="12" placeholder="1" id="month">
+        <input
+          name="month"
+          type="number"
+          min="1"
+          max="12"
+          placeholder="1"
+          id="month"
+        />
         <label for="year">Birth Year</label>
-        <input name="year" type="number" min="1922" max="2022" placeholder="2022" id="year">
-        <button id="submit">Submit</button>  
-        </form>
-        
-        <img id="clock" src="./images/clock.jpeg" 
-        alt="winding clock" height="500">
-        
-        
-        <div id="result"></div>
-        
-        
-      </main>
-      
-      
-      
-      
-      <script src="./main.js"></script>
-    
-</body>
+        <input
+          name="year"
+          type="number"
+          min="1922"
+          max="2022"
+          placeholder="2022"
+          id="year"
+        />
+        <button id="submit">Submit</button>
+      </form>
+
+      <img
+        id="clock"
+        src="./images/clock.jpeg"
+        alt="winding clock"
+        height="500"
+      />
+
+      <div id="result"></div>
+    </main>
+
+    <script src="./main.js"></script>
+  </body>
 </html>
