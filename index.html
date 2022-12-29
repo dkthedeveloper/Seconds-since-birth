@@ -12,9 +12,9 @@
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-
+      
       gtag("config", "G-RKEDVB0W51");
-    </script>
+      </script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,6 +22,16 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
+    <div id="modal">
+      <div id="backdrop">
+        <div class="card">
+          <div>
+            <p>Please pick a date.</p>
+            <button id="modal-btn">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <header>
       <h1>Welcome!</h1>
       <hr id="line" color="black" width="80%" />
@@ -33,35 +43,30 @@
       <form id="form">
         <label for="name">Name</label>
         <input name="name" type="text" placeholder="Name" id="name" />
-        <label for="month">Birth Month</label>
-        <input
-          name="month"
-          type="number"
-          min="1"
-          max="12"
-          placeholder="1"
-          id="month"
-        />
-        <label for="year">Birth Year</label>
-        <input
-          name="year"
-          type="number"
-          min="1922"
-          max="2022"
-          placeholder="2022"
-          id="year"
-        />
+        <label for="date">Date</label>
+        <input id="date" type="date" changeMonth="true" changeYear="true" />
+
         <button id="submit">Submit</button>
       </form>
+      <div id="reset">
+        <button>
+          RESET
+        </button>
+      </div>
 
       <img
         id="clock"
         src="./images/clock.jpeg"
         alt="winding clock"
-        height="500"
       />
 
-      <div id="result"></div>
+      <div id="result">
+        Hello <span id="user-name"></span>!
+  Hope you're having a great <span id="weekday"></span>!
+  <br>Can you believe you've been alive for 
+  <span id="seconds-alive"></span> seconds??
+      </div>
+    
     </main>
 
     <script src="./main.js"></script>

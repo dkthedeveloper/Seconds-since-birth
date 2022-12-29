@@ -6,8 +6,31 @@ let weekday = new Date() .toLocaleDateString("default", { weekday: "long"});
 let secondsPerYear = 31104000;
 let secondsPerMonth = 2592000;
 let now = new Date();
-let finalResult = 0;
 let resultElement = document.getElementById('result');
+let userNameElement = document.getElementById('user-name');
+let weekdayElement = document.getElementById('weekday');
+let secondsAliveElement = document.getElementById('seconds-alive');
+let datePicker = document.getElementById('date');
+let form = document.getElementById('form');
+let resetBtn = document.getElementById('reset');
+let userName = 'friend';
+let modal = document.getElementById('modal')
+let backdrop = document.getElementById('backdrop');
+let modalCloseBtn = document.getElementById('modal-btn');
+
+
+const findSecondsSinceBirth = function (month, year) {
+  
+  let year1 = secondsPerMonth * (12 - month);
+  let age = currentYear - year;
+  let midYears = secondsPerYear * (age - 1);
+  let endYear = secondsPerMonth * currentMonth;
+  return year1 + midYears + endYear
+}
+
+function modalChange (display) {
+  modal.style.display = display
+}
 
 
 
@@ -15,62 +38,38 @@ let resultElement = document.getElementById('result');
 
 document.getElementById('submit').onclick=function(event){
   event.preventDefault();
-  let birthMonth = document.getElementById('month').value;
-  let birthYear = document.getElementById('year').value;
-  
-  
-  
-  const secondsSinceBirth = function () {
-    
-    let year1 = secondsPerMonth * (12 - birthMonth);
-    let age = currentYear - birthYear;
-    let midYears = secondsPerYear * (age - 1);
-    let endYear = secondsPerMonth * currentMonth;
-    return year1 + midYears + endYear
-    
+  if (datePicker.value) {
+  console.log(datePicker.value);
+  secondsAliveElement.innerHTML = ''
+  let birthMonth = datePicker.value.slice(5, 7);
+  let birthYear = datePicker.value.slice(0, 4);
+  let userResult = findSecondsSinceBirth(birthMonth, birthYear);
+  let nameInput = document.getElementById('name');
+  form.style.display = 'none';
+  resetBtn.style.display = 'block';
+
+  if (nameInput.value) {
+    userName = nameInput.value
   }
-  
-  let userResult = secondsSinceBirth()
-  
-  setInterval(() => {
+
+  userNameElement.innerHTML = `${userName}`;
+  weekdayElement.innerHTML = `${weekday}`;
+  secondsAliveElement.innerHTML = `${userResult}`
+  resultElement.style.display = 'block'
+
+const secondsInt = setInterval(() => {
     userResult += 1;
-    resultElement.innerHTML = `Hello <strong>${userName}!</strong>
-    Hope you're having a great ${weekday}!
-    <br>Can you believe you've been alive for 
-    <span id="seconds-alive"><strong>${userResult}</strong></span> seconds??`}, 1000);
-  
-  
-  
-  let userName = document.getElementById('name').value;
-  
-  
-  
-  if (birthYear < 1922 || birthYear === "") {
-    alert("Please select a Birth Year");
-    
-    
+    secondsAliveElement.innerHTML = `${userResult}`}, 1000);
+  } 
+  else {
+    modalChange('flex');
+    return
   }
-  if (userName === '') {
-    
-    
-    resultElement.innerHTML = `Hello <strong>friend!</strong>
-      Hope you're having a great ${weekday}!
-      <br>Can you believe you've been alive for 
-      <span id="seconds-alive"><strong>${userResult}</strong></span> seconds??`
-      form.name.focus();
-      
-    }
-    
-    else  {
-      
-  
-  document.getElementById('result').innerHTML = `Hello <strong>${userName}!</strong>
-  Hope you're having a great ${weekday}!
-  <br>Can you believe you've been alive for 
-  <span id="seconds-alive"><strong>${userResult}</strong></span> seconds??`
   form.name.focus();
-
-  }
-
 }
+
+resetBtn.addEventListener('click', () => window.location.reload());
+modalCloseBtn.addEventListener('click', () => modalChange('none'));
+
+
 
