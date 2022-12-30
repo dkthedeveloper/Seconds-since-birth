@@ -2,7 +2,7 @@
         
         
         body    {
-            background-color: #f99843ca;
+            background-color: #f9984389;
             font-family: 'Raleway', sans-serif;
             margin: 0;
         }
@@ -64,13 +64,17 @@
             margin-right: 10px;
         }
 
-         input {
+        input {
           
           padding: 4px;
           border: 1px solid black;
           font-size: 12px;
           margin-right: 10px;
-          background-color: rgb(239, 249, 254);
+          
+        }
+
+        input:focus {
+            background-color: rgb(212, 241, 255);
         }
 
         #result  {
