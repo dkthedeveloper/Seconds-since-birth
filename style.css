@@ -2,14 +2,15 @@
         
         
         body    {
-            background-color: #ffe2ad;
+            background-color: #f99843ca;
             font-family: 'Raleway', sans-serif;
+            margin: 0;
         }
 
         
         header { 
             text-align:center;
-            margin-top: 40px;
+            margin: 40px 30px 0;
             
         }
 
@@ -18,7 +19,8 @@
             background-color: black;
             color: white;
             border-radius: 5px;
-            padding: 5px;
+            padding: 8px;
+            border: none;
         }
         
         h1  {
@@ -28,10 +30,6 @@
             
         }
 
-        #clock {
-            width: 400px;
-        }
-        
         
         main {
 
@@ -40,7 +38,7 @@
         }
         
          #clock {
-
+            width: 400px;
             margin-top: 50px;
             margin-bottom: 30px;
             border: 2px solid black;
@@ -48,6 +46,8 @@
             opacity: 0.8;
 
         }
+
+        
 
          #seconds-alive {
 
@@ -57,6 +57,7 @@
         #form  {
             display: flex;
             justify-content: center;
+            align-items: center;
         }
 
         label {
@@ -70,6 +71,10 @@
           font-size: 12px;
           margin-right: 10px;
           background-color: rgb(239, 249, 254);
+        }
+
+        #result  {
+            margin: 0 30px;
         }
 
         #result > span {
@@ -125,7 +130,7 @@
             border-radius: 10px;
             position: fixed;
             z-index: 100;
-            border: 2px solid black;
+            border: 2px solid rgb(0, 0, 0);
             
           }
 
