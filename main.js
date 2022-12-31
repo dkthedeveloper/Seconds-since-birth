@@ -5,7 +5,7 @@ let secondsAliveElement = document.getElementById("seconds-alive");
 let datePicker = document.getElementById("date");
 let form = document.getElementById("form");
 let resetBtn = document.getElementById("reset");
-let modalText = document.getElementById('modal-text');
+let modalText = document.getElementById("modal-text");
 let currentMonth = new Date().getMonth() + 1;
 let currentDay = new Date().getUTCDate();
 let currentYear = new Date().getFullYear();
@@ -18,9 +18,8 @@ let userName = "friend";
 let modal = document.getElementById("modal");
 let backdrop = document.getElementById("backdrop");
 let modalCloseBtn = document.getElementById("modal-btn");
-let invalidDateMessage = 'Please select past date.';
-let noDateMessage = "Please pick a date."
-
+let invalidDateMessage = "Please select past date.";
+let noDateMessage = "Please pick a date.";
 
 const findSecondsSinceBirth = function (month, year, day) {
   let year1 = secondsPerMonth * (12 - (month - 1)) + secondsPerDay * (30 - day);
@@ -36,7 +35,9 @@ function modalChange(displayValue, message) {
   modal.style.display = displayValue;
 }
 
-document.getElementById("submit").onclick = function (event) {
+document.getElementById("submit").onclick = renderResult;
+
+function renderResult(event) {
   event.preventDefault();
   if (datePicker.value) {
     console.log(datePicker.value);
@@ -46,13 +47,12 @@ document.getElementById("submit").onclick = function (event) {
     let birthDate = datePicker.value.slice(8, 10);
     let userResult = findSecondsSinceBirth(birthMonth, birthYear, birthDate);
     let nameInput = document.getElementById("name");
-    
 
-    if (userResult < 0) {
+    if (userResult <= 0) {
+      // prevents user from selecting present or future date.
       modalChange("flex", invalidDateMessage);
       return;
     } else {
-
       if (nameInput.value) {
         userName = nameInput.value;
       }
@@ -75,7 +75,7 @@ document.getElementById("submit").onclick = function (event) {
   form.style.display = "none";
   resetBtn.style.display = "block";
   form.name.focus();
-};
+}
 
 resetBtn.addEventListener("click", () => window.location.reload());
 modalCloseBtn.addEventListener("click", () => modalChange("none"));
