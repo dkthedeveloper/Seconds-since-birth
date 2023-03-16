@@ -21,14 +21,23 @@ let modalCloseBtn = document.getElementById("modal-btn");
 let invalidDateMessage = "Please select past date.";
 let noDateMessage = "Please pick a date.";
 
-const findSecondsSinceBirth = function (month, year, day) {
-  let year1 = secondsPerMonth * (12 - (month - 1)) + secondsPerDay * (30 - day);
+function findSecondsSinceBirth(month, year, day) {
+  let year1 =
+    year > currentYear
+      ? secondsPerMonth * (month - 1) + secondsPerDay * day
+      : 0;
   let age = currentYear - year;
-  let midYears = secondsPerYear * (age - 1);
-  let endYear = secondsPerMonth * (currentMonth - 1);
+  let midYears = secondsPerYear * (age > 0 ? age - 1 : age);
+  let endYear;
+  if (month < currentMonth) {
+    endYear = secondsPerMonth * (currentMonth - month);
+  } else if (month === currentMonth) {
+    endYear = day < currentDay ? secondsPerDay * (currentDay - day) : 0;
+  }
   let result = year1 + midYears + endYear;
+  console.log(result);
   return result;
-};
+}
 
 function modalChange(displayValue, message) {
   modalText.innerHTML = message;
@@ -42,9 +51,9 @@ function renderResult(event) {
   if (datePicker.value) {
     console.log(datePicker.value);
     secondsAliveElement.innerHTML = "";
-    let birthMonth = datePicker.value.slice(5, 7);
-    let birthYear = datePicker.value.slice(0, 4);
-    let birthDate = datePicker.value.slice(8, 10);
+    let birthMonth = parseInt(datePicker.value.slice(5, 7));
+    let birthYear = parseInt(datePicker.value.slice(0, 4));
+    let birthDate = parseInt(datePicker.value.slice(8, 10));
     let userResult = findSecondsSinceBirth(birthMonth, birthYear, birthDate);
     let nameInput = document.getElementById("name");
 
