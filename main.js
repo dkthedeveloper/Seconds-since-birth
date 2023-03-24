@@ -88,3 +88,10 @@ function renderResult(event) {
 
 resetBtn.addEventListener("click", () => window.location.reload());
 modalCloseBtn.addEventListener("click", () => modalChange("none"));
+backdrop.addEventListener("click", (e) => {
+  if (backdrop !== e.target) {
+    return;
+  } else {
+    modalChange("none");
+  }
+});
